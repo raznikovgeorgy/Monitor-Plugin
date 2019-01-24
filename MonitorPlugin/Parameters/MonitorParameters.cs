@@ -2,10 +2,17 @@
 
 namespace Monitor_Plugin.Parameters
 {
+    /// <summary>
+    /// Monitor parameters storage class
+    /// </summary>
     public class MonitorParameters
     {
         #region Public Methods
 
+        /// <summary>
+        /// Class constructor
+        /// </summary>
+        /// <param name="monitorParameters">List of all monitor parameters</param>
         public MonitorParameters(List<double> monitorParameters)
         {
             StandParameters standParameters = new StandParameters(
@@ -34,14 +41,32 @@ namespace Monitor_Plugin.Parameters
 
         #region Propetries
 
+        /// <summary>
+        /// Monitor stand parameters
+        /// </summary>
         public StandParameters StandParam { get => _standParameters; }
+
+        /// <summary>
+        /// Monitor leg parameters
+        /// </summary>
         public LegParameters LegParam { get => _legParameter; }
+
+        /// <summary>
+        /// Monitor screen parameters
+        /// </summary>
         public ScreenParameters ScreenParam { get => _screenParameters; }
 
         #endregion
 
         #region Private Methods
 
+        /// <summary>
+        /// Checking model parameters
+        /// </summary>
+        /// <param name="standParameters">Monitor stand parameters</param>
+        /// <param name="legParameters">Monitor leg parameters</param>
+        /// <param name="screenParameters">Monitor screen parameters</param>
+        /// <returns></returns>
         private bool Validate(StandParameters standParameters,
             LegParameters legParameters, ScreenParameters screenParameters)
         {
@@ -179,13 +204,27 @@ namespace Monitor_Plugin.Parameters
 
         #region Fields
 
+        /// <summary>
+        /// Monitor stand parameters
+        /// </summary>
         private StandParameters _standParameters;
+
+        /// <summary>
+        /// Monitor leg parameters
+        /// </summary>
         private LegParameters _legParameter;
+
+        /// <summary>
+        /// Monitor screen parameters
+        /// </summary>
         private ScreenParameters _screenParameters;
 
         #endregion
     }
 
+    /// <summary>
+    /// New data type to identify monitor parameters
+    /// </summary>
     internal enum ParametersType
     {
         StandHeight = 0,

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ScreenHeightLabel = new System.Windows.Forms.Label();
             this.ScreenWidthLabel = new System.Windows.Forms.Label();
             this.ScreenThiknessLabel = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@
             this.StandDiameterTextBox = new System.Windows.Forms.TextBox();
             this.BuildButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
+            this.BackCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // ScreenHeightLabel
@@ -306,7 +308,9 @@
             // 
             // BuildButton
             // 
-            this.BuildButton.Location = new System.Drawing.Point(159, 220);
+            this.BuildButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BuildButton.Location = new System.Drawing.Point(159, 243);
             this.BuildButton.Name = "BuildButton";
             this.BuildButton.Size = new System.Drawing.Size(75, 23);
             this.BuildButton.TabIndex = 9;
@@ -316,7 +320,9 @@
             // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(12, 220);
+            this.ClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearButton.Location = new System.Drawing.Point(12, 243);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(75, 23);
             this.ClearButton.TabIndex = 10;
@@ -324,11 +330,22 @@
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
+            // BackCheckBox
+            // 
+            this.BackCheckBox.AutoSize = true;
+            this.BackCheckBox.Location = new System.Drawing.Point(15, 220);
+            this.BackCheckBox.Name = "BackCheckBox";
+            this.BackCheckBox.Size = new System.Drawing.Size(209, 17);
+            this.BackCheckBox.TabIndex = 9;
+            this.BackCheckBox.Text = "Build a back of monitor with perforation";
+            this.BackCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(246, 255);
+            this.ClientSize = new System.Drawing.Size(246, 278);
+            this.Controls.Add(this.BackCheckBox);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.BuildButton);
             this.Controls.Add(this.StandDiameterTextBox);
@@ -355,8 +372,9 @@
             this.Controls.Add(this.ScreenThiknessLabel);
             this.Controls.Add(this.ScreenWidthLabel);
             this.Controls.Add(this.ScreenHeightLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(262, 290);
+            this.MaximumSize = new System.Drawing.Size(262, 313);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Monitor Builder";
@@ -394,6 +412,7 @@
         private System.Windows.Forms.TextBox StandDiameterTextBox;
         private System.Windows.Forms.Button BuildButton;
         private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.CheckBox BackCheckBox;
     }
 }
 

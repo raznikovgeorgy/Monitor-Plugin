@@ -7,14 +7,35 @@ using Monitor_Plugin.Parameters;
 
 namespace Monitor_Plugin
 {
+    /// <summary>
+    /// Main form class
+    /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Monitor parameters
+        /// </summary>
         private MonitorParameters _monitorParameters;
+
+        /// <summary>
+        /// Monitor manager
+        /// </summary>
         private MonitorManager _monitorManager;
+
+        /// <summary>
+        /// Inventor API
+        /// </summary>
         private InventorAPI _inventorAPI;
+
+        /// <summary>
+        /// Dictionary of errors
+        /// </summary>
         private Dictionary<PluginReporter.TypeError,
             TextBox> _typeErrorToTextBoxDictionary;
 
+        /// <summary>
+        /// Constructor class
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -35,15 +56,21 @@ namespace Monitor_Plugin
                     { PluginReporter.TypeError.ErrorScreenThikness, ScreenThiknessTextBox},
                 };
         }
+
+        /// <summary>
+        /// Error display method
+        /// </summary>
         private void ShowError()
         {
-            //_typeErrorToTextBoxDictionary[PluginReporter.Instance().
-            //    LastAddedError].BackColor = Color.LightSalmon;
-
             MessageBox.Show(PluginReporter.Instance().GetLastError(),
                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// Actions when form is loaded
+        /// </summary>
+        /// <param name="sender">Some sender</param>
+        /// <param name="e">Some event</param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             foreach (var i in _typeErrorToTextBoxDictionary.Values)
@@ -61,14 +88,14 @@ namespace Monitor_Plugin
 
             List<double> listMonitorParameters = new List<double>()
             {
-                Convert.ToDouble(StandHeightTextBox.Text), //15,
-                Convert.ToDouble(StandDiameterTextBox.Text), //200,
-                Convert.ToDouble(LegHeightTextBox.Text), //50,
-                Convert.ToDouble(LegWidthTextBox.Text), //60,
-                Convert.ToDouble(LegThiknessTextBox.Text), //20,
-                Convert.ToDouble(ScreenHeightTextBox.Text), //330,
-                Convert.ToDouble(ScreenWidthTextBox.Text), //550,
-                Convert.ToDouble(ScreenThiknessTextBox.Text), //30
+                Convert.ToDouble(StandHeightTextBox.Text),
+                Convert.ToDouble(StandDiameterTextBox.Text),
+                Convert.ToDouble(LegHeightTextBox.Text),
+                Convert.ToDouble(LegWidthTextBox.Text),
+                Convert.ToDouble(LegThiknessTextBox.Text),
+                Convert.ToDouble(ScreenHeightTextBox.Text),
+                Convert.ToDouble(ScreenWidthTextBox.Text),
+                Convert.ToDouble(ScreenThiknessTextBox.Text),
             };
 
             _monitorParameters = new MonitorParameters(listMonitorParameters);
@@ -81,9 +108,13 @@ namespace Monitor_Plugin
 
             _inventorAPI = new InventorAPI();
             _monitorManager = new MonitorManager(_inventorAPI, _monitorParameters);
-            _monitorManager.CreateMonitor();
+            _monitorManager.CreateMonitor(BackCheckBox.Checked);
         }
 
+        /// <summary>
+        /// Check cells for empties
+        /// </summary>
+        /// <returns>Empty cells flag</returns>
         private bool CheckCellsEmpty()
         {
             bool cellsNotEmpty = false;
@@ -99,12 +130,23 @@ namespace Monitor_Plugin
             return cellsNotEmpty;
         }
 
+        /// <summary>
+        /// Clear Textbox BackColor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
             textBox.BackColor = Color.White;
         }
 
+
+        /// <summary>
+        /// TextBox Keyress event validate
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -126,12 +168,19 @@ namespace Monitor_Plugin
             }
         }
 
+        /// <summary>
+        /// Clear all fields and checkboxes button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClearButton_Click(object sender, EventArgs e)
         {
             foreach (var i in _typeErrorToTextBoxDictionary.Values)
             {
                 i.Clear();
             }
+
+            BackCheckBox.Checked = false;
         }
 
         #region TextBox TextChanged Events
