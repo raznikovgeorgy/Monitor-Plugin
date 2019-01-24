@@ -63,7 +63,7 @@
             this.ScreenHeightLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ScreenHeightLabel.Name = "ScreenHeightLabel";
             this.ScreenHeightLabel.Size = new System.Drawing.Size(75, 13);
-            this.ScreenHeightLabel.TabIndex = 0;
+            this.ScreenHeightLabel.TabIndex = 16;
             this.ScreenHeightLabel.Text = "Screen Height";
             // 
             // ScreenWidthLabel
@@ -73,7 +73,7 @@
             this.ScreenWidthLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ScreenWidthLabel.Name = "ScreenWidthLabel";
             this.ScreenWidthLabel.Size = new System.Drawing.Size(72, 13);
-            this.ScreenWidthLabel.TabIndex = 1;
+            this.ScreenWidthLabel.TabIndex = 17;
             this.ScreenWidthLabel.Text = "Screen Width";
             // 
             // ScreenThiknessLabel
@@ -83,7 +83,7 @@
             this.ScreenThiknessLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ScreenThiknessLabel.Name = "ScreenThiknessLabel";
             this.ScreenThiknessLabel.Size = new System.Drawing.Size(87, 13);
-            this.ScreenThiknessLabel.TabIndex = 2;
+            this.ScreenThiknessLabel.TabIndex = 18;
             this.ScreenThiknessLabel.Text = "Screen Thikness";
             // 
             // LegHeightLabel
@@ -93,7 +93,7 @@
             this.LegHeightLabel.Margin = new System.Windows.Forms.Padding(3);
             this.LegHeightLabel.Name = "LegHeightLabel";
             this.LegHeightLabel.Size = new System.Drawing.Size(59, 13);
-            this.LegHeightLabel.TabIndex = 3;
+            this.LegHeightLabel.TabIndex = 13;
             this.LegHeightLabel.Text = "Leg Height";
             // 
             // LegWidthLabel
@@ -103,7 +103,7 @@
             this.LegWidthLabel.Margin = new System.Windows.Forms.Padding(3);
             this.LegWidthLabel.Name = "LegWidthLabel";
             this.LegWidthLabel.Size = new System.Drawing.Size(56, 13);
-            this.LegWidthLabel.TabIndex = 4;
+            this.LegWidthLabel.TabIndex = 14;
             this.LegWidthLabel.Text = "Leg Width";
             // 
             // LegThiknessLabel
@@ -113,7 +113,7 @@
             this.LegThiknessLabel.Margin = new System.Windows.Forms.Padding(3);
             this.LegThiknessLabel.Name = "LegThiknessLabel";
             this.LegThiknessLabel.Size = new System.Drawing.Size(71, 13);
-            this.LegThiknessLabel.TabIndex = 5;
+            this.LegThiknessLabel.TabIndex = 15;
             this.LegThiknessLabel.Text = "Leg Thikness";
             // 
             // StandHeightLabel
@@ -123,7 +123,7 @@
             this.StandHeightLabel.Margin = new System.Windows.Forms.Padding(3);
             this.StandHeightLabel.Name = "StandHeightLabel";
             this.StandHeightLabel.Size = new System.Drawing.Size(69, 13);
-            this.StandHeightLabel.TabIndex = 6;
+            this.StandHeightLabel.TabIndex = 11;
             this.StandHeightLabel.Text = "Stand Height";
             // 
             // StandDiameterLabel
@@ -133,7 +133,7 @@
             this.StandDiameterLabel.Margin = new System.Windows.Forms.Padding(3);
             this.StandDiameterLabel.Name = "StandDiameterLabel";
             this.StandDiameterLabel.Size = new System.Drawing.Size(80, 13);
-            this.StandDiameterLabel.TabIndex = 7;
+            this.StandDiameterLabel.TabIndex = 12;
             this.StandDiameterLabel.Text = "Stand Diameter";
             // 
             // label9
@@ -143,7 +143,7 @@
             this.label9.Margin = new System.Windows.Forms.Padding(3);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(23, 13);
-            this.label9.TabIndex = 8;
+            this.label9.TabIndex = 24;
             this.label9.Text = "mm";
             // 
             // label10
@@ -153,7 +153,7 @@
             this.label10.Margin = new System.Windows.Forms.Padding(3);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(23, 13);
-            this.label10.TabIndex = 9;
+            this.label10.TabIndex = 25;
             this.label10.Text = "mm";
             // 
             // label11
@@ -163,7 +163,7 @@
             this.label11.Margin = new System.Windows.Forms.Padding(3);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(23, 13);
-            this.label11.TabIndex = 10;
+            this.label11.TabIndex = 26;
             this.label11.Text = "mm";
             // 
             // label12
@@ -173,7 +173,7 @@
             this.label12.Margin = new System.Windows.Forms.Padding(3);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(23, 13);
-            this.label12.TabIndex = 11;
+            this.label12.TabIndex = 21;
             this.label12.Text = "mm";
             // 
             // label13
@@ -183,7 +183,7 @@
             this.label13.Margin = new System.Windows.Forms.Padding(3);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(23, 13);
-            this.label13.TabIndex = 12;
+            this.label13.TabIndex = 22;
             this.label13.Text = "mm";
             // 
             // label14
@@ -193,7 +193,7 @@
             this.label14.Margin = new System.Windows.Forms.Padding(3);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(23, 13);
-            this.label14.TabIndex = 13;
+            this.label14.TabIndex = 23;
             this.label14.Text = "mm";
             // 
             // label15
@@ -203,7 +203,7 @@
             this.label15.Margin = new System.Windows.Forms.Padding(3);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(23, 13);
-            this.label15.TabIndex = 14;
+            this.label15.TabIndex = 19;
             this.label15.Text = "mm";
             // 
             // label16
@@ -213,7 +213,7 @@
             this.label16.Margin = new System.Windows.Forms.Padding(3);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(23, 13);
-            this.label16.TabIndex = 15;
+            this.label16.TabIndex = 20;
             this.label16.Text = "mm";
             // 
             // ScreenHeightTextBox
@@ -223,7 +223,7 @@
             this.ScreenHeightTextBox.Location = new System.Drawing.Point(105, 142);
             this.ScreenHeightTextBox.Name = "ScreenHeightTextBox";
             this.ScreenHeightTextBox.Size = new System.Drawing.Size(100, 20);
-            this.ScreenHeightTextBox.TabIndex = 16;
+            this.ScreenHeightTextBox.TabIndex = 6;
             this.ScreenHeightTextBox.TextChanged += new System.EventHandler(this.ScreenHeightTextBox_TextChanged);
             this.ScreenHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScreenHeightTextBox_KeyPress);
             // 
@@ -234,7 +234,7 @@
             this.ScreenWidthTextBox.Location = new System.Drawing.Point(105, 168);
             this.ScreenWidthTextBox.Name = "ScreenWidthTextBox";
             this.ScreenWidthTextBox.Size = new System.Drawing.Size(100, 20);
-            this.ScreenWidthTextBox.TabIndex = 17;
+            this.ScreenWidthTextBox.TabIndex = 7;
             this.ScreenWidthTextBox.TextChanged += new System.EventHandler(this.ScreenWidthTextBox_TextChanged);
             this.ScreenWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScreenWidthTextBox_KeyPress);
             // 
@@ -245,7 +245,7 @@
             this.ScreenThiknessTextBox.Location = new System.Drawing.Point(105, 194);
             this.ScreenThiknessTextBox.Name = "ScreenThiknessTextBox";
             this.ScreenThiknessTextBox.Size = new System.Drawing.Size(100, 20);
-            this.ScreenThiknessTextBox.TabIndex = 18;
+            this.ScreenThiknessTextBox.TabIndex = 8;
             this.ScreenThiknessTextBox.TextChanged += new System.EventHandler(this.ScreenThiknessTextBox_TextChanged);
             this.ScreenThiknessTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScreenThiknessTextBox_KeyPress);
             // 
@@ -256,7 +256,7 @@
             this.LegHeightTextBox.Location = new System.Drawing.Point(105, 64);
             this.LegHeightTextBox.Name = "LegHeightTextBox";
             this.LegHeightTextBox.Size = new System.Drawing.Size(100, 20);
-            this.LegHeightTextBox.TabIndex = 19;
+            this.LegHeightTextBox.TabIndex = 3;
             this.LegHeightTextBox.TextChanged += new System.EventHandler(this.LegHeightTextBox_TextChanged);
             this.LegHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LegHeightTextBox_KeyPress);
             // 
@@ -267,7 +267,7 @@
             this.LegWidthTextBox.Location = new System.Drawing.Point(105, 90);
             this.LegWidthTextBox.Name = "LegWidthTextBox";
             this.LegWidthTextBox.Size = new System.Drawing.Size(100, 20);
-            this.LegWidthTextBox.TabIndex = 20;
+            this.LegWidthTextBox.TabIndex = 4;
             this.LegWidthTextBox.TextChanged += new System.EventHandler(this.LegWidthTextBox_TextChanged);
             this.LegWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LegWidthTextBox_KeyPress);
             // 
@@ -278,7 +278,7 @@
             this.LegThiknessTextBox.Location = new System.Drawing.Point(105, 116);
             this.LegThiknessTextBox.Name = "LegThiknessTextBox";
             this.LegThiknessTextBox.Size = new System.Drawing.Size(100, 20);
-            this.LegThiknessTextBox.TabIndex = 21;
+            this.LegThiknessTextBox.TabIndex = 5;
             this.LegThiknessTextBox.TextChanged += new System.EventHandler(this.LegThiknessTextBox_TextChanged);
             this.LegThiknessTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LegThiknessTextBox_KeyPress);
             // 
@@ -289,7 +289,7 @@
             this.StandHeightTextBox.Location = new System.Drawing.Point(105, 12);
             this.StandHeightTextBox.Name = "StandHeightTextBox";
             this.StandHeightTextBox.Size = new System.Drawing.Size(100, 20);
-            this.StandHeightTextBox.TabIndex = 22;
+            this.StandHeightTextBox.TabIndex = 1;
             this.StandHeightTextBox.TextChanged += new System.EventHandler(this.StandHeightTextBox_TextChanged);
             this.StandHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StandHeightTextBox_KeyPress);
             // 
@@ -300,7 +300,7 @@
             this.StandDiameterTextBox.Location = new System.Drawing.Point(105, 38);
             this.StandDiameterTextBox.Name = "StandDiameterTextBox";
             this.StandDiameterTextBox.Size = new System.Drawing.Size(100, 20);
-            this.StandDiameterTextBox.TabIndex = 23;
+            this.StandDiameterTextBox.TabIndex = 2;
             this.StandDiameterTextBox.TextChanged += new System.EventHandler(this.StandDiameterTextBox_TextChanged);
             this.StandDiameterTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StandDiameterTextBox_KeyPress);
             // 
@@ -309,7 +309,7 @@
             this.BuildButton.Location = new System.Drawing.Point(159, 220);
             this.BuildButton.Name = "BuildButton";
             this.BuildButton.Size = new System.Drawing.Size(75, 23);
-            this.BuildButton.TabIndex = 24;
+            this.BuildButton.TabIndex = 9;
             this.BuildButton.Text = "Build";
             this.BuildButton.UseVisualStyleBackColor = true;
             this.BuildButton.Click += new System.EventHandler(this.BuildButton_Click);
@@ -319,7 +319,7 @@
             this.ClearButton.Location = new System.Drawing.Point(12, 220);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearButton.TabIndex = 25;
+            this.ClearButton.TabIndex = 10;
             this.ClearButton.Text = "Clear all";
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
