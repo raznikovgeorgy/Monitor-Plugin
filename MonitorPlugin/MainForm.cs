@@ -46,14 +46,29 @@ namespace Monitor_Plugin
                 new Dictionary<PluginReporter.TypeError,
                     TextBox>()
                 {
-                    { PluginReporter.TypeError.ErrorStandHeight, StandHeightTextBox},
-                    { PluginReporter.TypeError.ErrorStandDiameter, StandDiameterTextBox},
-                    { PluginReporter.TypeError.ErrorLegHeight, LegHeightTextBox},
-                    { PluginReporter.TypeError.ErrorLegWidth, LegWidthTextBox},
-                    { PluginReporter.TypeError.ErrorLegThikness, LegThiknessTextBox},
-                    { PluginReporter.TypeError.ErrorScreenHeight, ScreenHeightTextBox},
-                    { PluginReporter.TypeError.ErrorScreenWidth, ScreenWidthTextBox},
-                    { PluginReporter.TypeError.ErrorScreenThikness, ScreenThiknessTextBox},
+                    { PluginReporter.TypeError.ErrorStandHeight,
+	                    StandHeightTextBox },
+
+                    { PluginReporter.TypeError.ErrorStandDiameter,
+	                    StandDiameterTextBox },
+
+                    { PluginReporter.TypeError.ErrorLegHeight,
+	                    LegHeightTextBox },
+
+                    { PluginReporter.TypeError.ErrorLegWidth,
+	                    LegWidthTextBox },
+
+                    { PluginReporter.TypeError.ErrorLegThikness,
+	                    LegThiknessTextBox },
+
+                    { PluginReporter.TypeError.ErrorScreenHeight,
+	                    ScreenHeightTextBox },
+
+                    { PluginReporter.TypeError.ErrorScreenWidth,
+	                    ScreenWidthTextBox },
+
+                    { PluginReporter.TypeError.ErrorScreenThikness,
+	                    ScreenThiknessTextBox },
                 };
         }
 
@@ -157,8 +172,10 @@ namespace Monitor_Plugin
             {
                 ValueParameterChecking.CheckNoMoreNChar(textBox, e, 4);
             }
-            else if (textBox.Name == "ScreenThiknessTextBox" || textBox.Name == "LegHeightTextBox" ||
-                     textBox.Name == "LegThiknessTextBox" || textBox.Name == "StandHeightTextBox")
+            else if (textBox.Name == "ScreenThiknessTextBox" ||
+                     textBox.Name == "LegHeightTextBox" ||
+                     textBox.Name == "LegThiknessTextBox" ||
+                     textBox.Name == "StandHeightTextBox")
             {
                 ValueParameterChecking.CheckNoMoreNChar(textBox, e, 2);
             }

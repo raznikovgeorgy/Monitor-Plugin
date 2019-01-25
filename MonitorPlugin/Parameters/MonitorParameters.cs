@@ -73,8 +73,8 @@ namespace Monitor_Plugin.Parameters
             const double minStandHeight = 10;
             const double maxStandHeight = 20;
 
-            bool checkStandHeight = (standParameters.Height >= minStandHeight)
-                                    && (standParameters.Height <= maxStandHeight);
+            bool checkStandHeight = (standParameters.Height >= minStandHeight) &&
+                                    (standParameters.Height <= maxStandHeight);
 
             if (!checkStandHeight)
             {
@@ -89,8 +89,8 @@ namespace Monitor_Plugin.Parameters
             const double minStandDiameter = 160;
             const double maxStandDiameter = 250;
 
-            bool checkStandDiameter = (standParameters.Diameter >= minStandDiameter)
-                                      && (standParameters.Diameter <= maxStandDiameter);
+            bool checkStandDiameter = (standParameters.Diameter >= minStandDiameter) &&
+                                      (standParameters.Diameter <= maxStandDiameter);
 
             if (!checkStandDiameter)
             {
@@ -105,8 +105,8 @@ namespace Monitor_Plugin.Parameters
             const double minLegHeight = 40;
             const double maxLegHeight = 80;
 
-            bool checkLegHeight = (legParameters.Height >= minLegHeight)
-                                     && (legParameters.Height <= maxLegHeight);
+            bool checkLegHeight = (legParameters.Height >= minLegHeight) &&
+                                  (legParameters.Height <= maxLegHeight);
 
             if (!checkLegHeight)
             {
@@ -121,8 +121,8 @@ namespace Monitor_Plugin.Parameters
             const double minLegWidth = 50;
             const double maxLegWidth = 100;
 
-            bool checkLegWidth = (legParameters.Width >= minLegWidth)
-                                     && (legParameters.Width <= maxLegWidth);
+            bool checkLegWidth = (legParameters.Width >= minLegWidth) &&
+                                 (legParameters.Width <= maxLegWidth);
 
             if (!checkLegWidth)
             {
@@ -136,8 +136,8 @@ namespace Monitor_Plugin.Parameters
 
             const double minLegThikness = 15;
 
-            bool checkLegThikness = (legParameters.Thikness >= minLegThikness)
-                                    && (legParameters.Thikness <= screenParameters.Thikness);
+            bool checkLegThikness = (legParameters.Thikness >= minLegThikness) &&
+                                    (legParameters.Thikness <= screenParameters.Thikness);
 
             if (!checkLegThikness)
             {
@@ -152,8 +152,8 @@ namespace Monitor_Plugin.Parameters
             const double minScreenHeight = 172;
             const double maxScreenHeight = 625;
 
-            bool checkScreenHeight = (screenParameters.Height >= minScreenHeight)
-                                     && (screenParameters.Height <= maxScreenHeight);
+            bool checkScreenHeight = (screenParameters.Height >= minScreenHeight) &&
+                                     (screenParameters.Height <= maxScreenHeight);
 
             if (!checkScreenHeight)
             {
@@ -168,8 +168,8 @@ namespace Monitor_Plugin.Parameters
             const double minScreenWidth = 400;
             const double maxScreenWidth = 1000;
 
-            bool checkScreenWidth = (screenParameters.Width >= minScreenWidth)
-                                     && (screenParameters.Width <= maxScreenWidth);
+            bool checkScreenWidth = (screenParameters.Width >= minScreenWidth) &&
+                                    (screenParameters.Width <= maxScreenWidth);
 
             if (!checkScreenWidth)
             {
@@ -184,8 +184,8 @@ namespace Monitor_Plugin.Parameters
             const double minScreenThikness = 30;
             const double maxScreenThikness = 60;
 
-            bool checkScreenThikness = (screenParameters.Thikness >= minScreenThikness)
-                                    && (screenParameters.Thikness <= maxScreenThikness);
+            bool checkScreenThikness = (screenParameters.Thikness >= minScreenThikness) &&
+                                       (screenParameters.Thikness <= maxScreenThikness);
 
             if (!checkScreenThikness)
             {

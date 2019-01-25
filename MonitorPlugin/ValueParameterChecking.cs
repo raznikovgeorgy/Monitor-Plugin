@@ -32,9 +32,11 @@ namespace Monitor_Plugin
         /// <param name="textBox"> The field in which to enter </param>
         /// <param name="keyPress"> Key pressed </param>
         /// <param name="countChar"> Maximum number of characters to enter </param>
-        public static void CheckNoMoreNChar(TextBox textBox, KeyPressEventArgs keyPress, int countChar)
+        public static void CheckNoMoreNChar(TextBox textBox,
+	        KeyPressEventArgs keyPress, int countChar)
         {
-            if ((textBox.Text != string.Empty) && (keyPress.KeyChar != ButtonBackspace))
+            if ((textBox.Text != string.Empty) &&
+                (keyPress.KeyChar != ButtonBackspace))
             {
                 if (textBox.Text.Count() >= (countChar))
                 {

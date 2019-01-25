@@ -1,6 +1,7 @@
 ﻿using Inventor;
 using Monitor_Plugin.Inventor_API;
 using Monitor_Plugin.Parameters;
+using System;
 
 namespace Monitor_Plugin
 {
@@ -20,6 +21,8 @@ namespace Monitor_Plugin
         {
             _api = api;
             _modelParameters = modelParameters;
+            _objCollection = _api.InventorApplication.TransientObjects.
+                CreateObjectCollection();
         }
 
         /// <summary>
@@ -50,6 +53,11 @@ namespace Monitor_Plugin
         /// </summary>
         private InventorAPI _api;
 
+        /// <summary>
+        /// Collection of sketches for creating strikers
+        /// </summary>
+        private ObjectCollection _objCollection;
+
         #endregion
 
         #region Private Methods
@@ -70,55 +78,119 @@ namespace Monitor_Plugin
         private void CreateLeg()
         {
             _api.MakeNewSketch(2, _modelParameters.StandParam.Height);
-            _api.DrawRectangle(-(_modelParameters.LegParam.Width / 2), _modelParameters.LegParam.Thikness / 2, _modelParameters.LegParam.Width / 2, -(_modelParameters.LegParam.Thikness / 2));
+
+            _api.DrawRectangle(-(_modelParameters.LegParam.Width / 2),
+	            _modelParameters.LegParam.Thikness / 2,
+	            _modelParameters.LegParam.Width / 2,
+	            -(_modelParameters.LegParam.Thikness / 2));
+
             _api.Extrude(_modelParameters.LegParam.Height);
         }
 
         /// <summary>
         /// Making a monitor screen in Inventor 2018
         /// </summary>
-        /// <param name="createBackFlag">Flag for back building. If true - create back of monitor with perforation</param>
+        /// <param name="createBackFlag">Flag for back building.
+        /// If true - create back of monitor with perforation</param>
         private void CreateScreen(bool createBackFlag)
         {
             // Create screen
-            _api.MakeNewSketch(2, _modelParameters.StandParam.Height + _modelParameters.LegParam.Height);
-            _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2), _modelParameters.ScreenParam.Thikness / 2, _modelParameters.ScreenParam.Width / 2, -(_modelParameters.ScreenParam.Thikness / 2));
+            _api.MakeNewSketch(2, _modelParameters.StandParam.Height +
+                                  _modelParameters.LegParam.Height);
+
+            _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2),
+	            _modelParameters.ScreenParam.Thikness / 2,
+	            _modelParameters.ScreenParam.Width / 2,
+	            -(_modelParameters.ScreenParam.Thikness / 2));
+
             _api.Extrude(_modelParameters.ScreenParam.Height);
 
             // Matrix cutting
             _api.MakeNewSketch(3, _modelParameters.ScreenParam.Thikness / 2);
-            _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2) + 10, _modelParameters.StandParam.Height + _modelParameters.LegParam.Height + _modelParameters.ScreenParam.Height - 10,
-                (_modelParameters.ScreenParam.Width / 2) - 10, _modelParameters.StandParam.Height + _modelParameters.LegParam.Height + 10);
+
+	        double frameThikness = 10;
+
+            _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2) + frameThikness,
+	            _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
+	            _modelParameters.ScreenParam.Height - frameThikness,
+                (_modelParameters.ScreenParam.Width / 2) - frameThikness,
+	            _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
+	            frameThikness);
+
             _api.CutOut(5, PartFeatureExtentDirectionEnum.kNegativeExtentDirection);
 
-            // Create back
-            if (createBackFlag)
+	        //Сreate some buttons
+	        _api.MakeNewSketch(3, _modelParameters.ScreenParam.Thikness / 2);
+
+	        for (int i = 0; i <= 2; i++)
+	        {
+				// Variables for buttons create
+		        double distanceFromBorderSide = 15;
+		        double distanceFromDownSide = 5;
+		        double distanceBetweenButtons = 5;
+		        double buttonsDiameter = 3;
+
+		        _api.DrawCircle(_modelParameters.ScreenParam.Width / 2 -
+		                        (distanceFromBorderSide + distanceBetweenButtons * i),
+			        _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
+			        distanceFromDownSide, buttonsDiameter);
+	        }
+
+	        double buttonsThikness = 1;
+
+			_api.Extrude(buttonsThikness);
+
+			// Create back
+			if (createBackFlag)
             {
                 _api.MakeNewSketch(3, -(_modelParameters.ScreenParam.Thikness / 2));
-                _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2) + 10, _modelParameters.StandParam.Height + _modelParameters.LegParam.Height + _modelParameters.ScreenParam.Height - 10,
-                    (_modelParameters.ScreenParam.Width / 2) - 10, _modelParameters.StandParam.Height + _modelParameters.LegParam.Height + 10);
-                _api.Extrude(15, PartFeatureExtentDirectionEnum.kNegativeExtentDirection);
 
-                // Number of perforation cells
-                double backPerforationCount = (_modelParameters.ScreenParam.Width - 20) / 4;
+                _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2),
+	                _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
+	                _modelParameters.ScreenParam.Height, _modelParameters.ScreenParam.Width / 2,
+	                _modelParameters.StandParam.Height + _modelParameters.LegParam.Height);
+
+                _objCollection.Add(_api.CurrentSketch.Profiles.AddForSolid());
+
+	            double backWidth = 20;
+
+                _api.MakeNewSketch(3, -(_modelParameters.ScreenParam.Thikness / 2) - backWidth);
+
+                _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2) + frameThikness,
+	                _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
+	                _modelParameters.ScreenParam.Height - frameThikness,
+	                _modelParameters.ScreenParam.Width / 2 - frameThikness,
+	                _modelParameters.StandParam.Height + _modelParameters.LegParam.Height + frameThikness);
+
+                _objCollection.Add(_api.CurrentSketch.Profiles.AddForSolid());
+                _api.Loft(_objCollection);
+                _objCollection.Clear();
+
+				// Perforation cells width
+				double cellsWidth = 2;
+
+				// Distance between perforation cells
+				double cellDistance = 2;
+
+				// Number of perforation cells of perforation
+				double backPerforationCount = 
+					Math.Floor((_modelParameters.ScreenParam.Width - backWidth) / cellsWidth + cellDistance);
 
                 //Create perforation cells
-                _api.MakeNewSketch(3, -(_modelParameters.ScreenParam.Thikness / 2) - 15);
-                for (int i = 0; i <= backPerforationCount; i++)
+                _api.MakeNewSketch(3, -(_modelParameters.ScreenParam.Thikness / 2) - frameThikness * 2);
+
+                for (int i = 0; i < backPerforationCount; i++)
                 {
-                    _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2) + 12 + i * 4, _modelParameters.StandParam.Height + _modelParameters.LegParam.Height + _modelParameters.ScreenParam.Height - 10,
-                        -(_modelParameters.ScreenParam.Width / 2) + 14 + i * 4, _modelParameters.StandParam.Height + _modelParameters.LegParam.Height + _modelParameters.ScreenParam.Height - 80);
+                    _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2) + frameThikness + 2 + i * 4,
+	                    _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
+	                    _modelParameters.ScreenParam.Height,
+	                    -(_modelParameters.ScreenParam.Width / 2) + frameThikness + 4 + i * 4,
+	                    _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
+	                    _modelParameters.ScreenParam.Height - 100);
                 }
+
                 _api.CutOut(9);
             }
-
-            //Сreate some buttons
-            _api.MakeNewSketch(3, _modelParameters.ScreenParam.Thikness / 2);
-            for (int i = 0; i <= 2; i++)
-            {
-                _api.DrawCircle(_modelParameters.ScreenParam.Width / 2 - (15 + i * 5), _modelParameters.StandParam.Height + _modelParameters.LegParam.Height + 5, 3);
-            }
-            _api.Extrude(1);
         }
 
         #endregion
