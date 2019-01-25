@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
-using Environment = System.Environment;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Environment = System.Environment;
 using NUnit.Framework;
-using MonitorPlugin;
 using System.IO;
 using Monitor_Plugin.Inventor_API;
-using Inventor;
 using Monitor_Plugin;
 using Monitor_Plugin.Parameters;
 
@@ -17,6 +13,7 @@ using Monitor_Plugin.Parameters;
 namespace MonitorPlugin.UnitTests
 {
 	[TestFixture]
+	[Ignore("Ignore a fixture")]
 	public class StressTest
 	{
 		private readonly StreamWriter _writer;
@@ -31,11 +28,12 @@ namespace MonitorPlugin.UnitTests
 
 
 		[Test]
+		[Ignore("Ignore a stress-test")]
 		public void Start()
 		{
 			int n = 0;
 			bool createBackFlag = true;
-			while (n < 50)
+			while (true)
 			{
 				InventorAPI inventorAPI = new InventorAPI();
 
@@ -49,23 +47,22 @@ namespace MonitorPlugin.UnitTests
 				MonitorManager monitorManager = new MonitorManager(inventorAPI,
 					monitorParameters);
 
-				var processes = Process.GetProcessesByName(System.IO.Path.GetFileNameWithoutExtension("Inventor.exe"));
+				var processes = Process.GetProcessesByName(Path.GetFileNameWithoutExtension("Inventor.exe"));
 				var process = processes.First();
-				//var process = processes[4];
 
 				// При первой итерации проинициализировать объекты, отвечающие за фиксирование нагрузки
 				if (n == 0)
 				{
 					_ramCounter = new PerformanceCounter("Process", "Working Set", process.ProcessName);
-					_cpuCounter = new PerformanceCounter("Process", "% Processor Time", process.ProcessName);
+					_cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
 				}
 
-				_cpuCounter.NextValue();
+				//_cpuCounter.NextValue();
 
 				monitorManager.CreateMonitor(createBackFlag);
 
 				var ram = _ramCounter.NextValue();
-				var cpu = _cpuCounter.NextValue();
+				var cpu = Math.Round(_cpuCounter.NextValue());
 
 				_writer.Write($"{n}. ");
 				_writer.Write($"RAM: {Math.Round(ram / 1024 / 1024)} MB");
@@ -78,7 +75,7 @@ namespace MonitorPlugin.UnitTests
 
 		public void CloseApplication()
 		{
-			foreach (var process in Process.GetProcessesByName("Inventor"))
+			foreach (var process in Process.GetProcessesByName(Path.GetFileNameWithoutExtension("Inventor.exe")))
 			{
 				process.Kill();
 			}
