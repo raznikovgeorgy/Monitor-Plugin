@@ -152,9 +152,9 @@ namespace Monitor_Plugin
 
                 _objCollection.Add(_api.CurrentSketch.Profiles.AddForSolid());
 
-	            double backWidth = 20;
+	            double backWidthAccess = 20;
 
-                _api.MakeNewSketch(3, -(_modelParameters.ScreenParam.Thikness / 2) - backWidth);
+                _api.MakeNewSketch(3, -(_modelParameters.ScreenParam.Thikness / 2) - backWidthAccess);
 
                 _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2) + frameThikness,
 	                _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
@@ -174,7 +174,7 @@ namespace Monitor_Plugin
 
 				// Number of perforation cells of perforation
 				double backPerforationCount = 
-					Math.Floor((_modelParameters.ScreenParam.Width - backWidth) / cellsWidth + cellDistance);
+					Math.Floor((_modelParameters.ScreenParam.Width - backWidthAccess) / (cellsWidth + cellDistance));
 
                 //Create perforation cells
                 _api.MakeNewSketch(3, -(_modelParameters.ScreenParam.Thikness / 2) - frameThikness * 2);
@@ -186,7 +186,7 @@ namespace Monitor_Plugin
 	                    _modelParameters.ScreenParam.Height,
 	                    -(_modelParameters.ScreenParam.Width / 2) + frameThikness + 4 + i * 4,
 	                    _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
-	                    _modelParameters.ScreenParam.Height - 100);
+	                    _modelParameters.ScreenParam.Height - (0.3 * _modelParameters.ScreenParam.Height));
                 }
 
                 _api.CutOut(9);

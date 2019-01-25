@@ -193,7 +193,7 @@ namespace Monitor_Plugin.Parameters
                     PluginReporter.TypeError.ErrorScreenHeight,
                     "The Screen Thikness are not correct.\n" +
                     "Please observe the folloving relationship:\n" +
-                    "50 mm <= Screen Thikness <= 80 mm");
+                    "30 mm <= Screen Thikness <= 60 mm");
                 return false;
             }
 
