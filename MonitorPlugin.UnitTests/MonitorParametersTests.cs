@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace MonitorPlugin.UnitTests
 {
 	[TestFixture]
-	class MonitorParametersTests
+	public class MonitorParametersTests
 	{
 		[Test, Description("Positive test constructor with input values")]
 		public void PositiveTestConstructor()
@@ -35,22 +35,61 @@ namespace MonitorPlugin.UnitTests
 			Assert.AreEqual(monitorParameters.ScreenParam.Thikness, 30);
 		}
 
-		[Test, Description("Negative test constructor with input values")]
-		public void NegativeTestConstructor()
+		[Test, Description("Negative test constructor with NaN input values")]
+		public void NanNTestConstructor()
 		{
 			List<double> monitorParametersList = new List<double>()
 			{
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1
+				double.NaN,
+				double.NaN,
+				double.NaN,
+				double.NaN,
+				double.NaN,
+				double.NaN,
+				double.NaN,
+				double.NaN
 			};
 
-			Assert.Throws<NullReferenceException>(() => { MonitorParameters monitorParameters = new MonitorParameters(monitorParametersList); });
+			Assert.Throws<NullReferenceException>(() =>
+			{ MonitorParameters monitorParameters = new MonitorParameters(monitorParametersList); });
+		}
+
+		[Test, Description("Negative test constructor with NegativeInfinity input values")]
+		public void NegativeInfinityTestConstructor()
+		{
+			List<double> monitorParametersList = new List<double>()
+			{
+				double.NegativeInfinity,
+				double.NegativeInfinity,
+				double.NegativeInfinity,
+				double.NegativeInfinity,
+				double.NegativeInfinity,
+				double.NegativeInfinity,
+				double.NegativeInfinity,
+				double.NegativeInfinity
+			};
+
+			Assert.Throws<NullReferenceException>(() =>
+			{ MonitorParameters monitorParameters = new MonitorParameters(monitorParametersList); });
+		}
+
+		[Test, Description("Negative test constructor with PositiveInfinity input values")]
+		public void PositiveInfinityTestConstructor()
+		{
+			List<double> monitorParametersList = new List<double>()
+			{
+				double.PositiveInfinity,
+				double.PositiveInfinity,
+				double.PositiveInfinity,
+				double.PositiveInfinity,
+				double.PositiveInfinity,
+				double.PositiveInfinity,
+				double.PositiveInfinity,
+				double.PositiveInfinity
+			};
+
+			Assert.Throws<NullReferenceException>(() =>
+			{ MonitorParameters monitorParameters = new MonitorParameters(monitorParametersList); });
 		}
 	}
 }

@@ -15,6 +15,7 @@ namespace Monitor_Plugin.Parameters
         /// <param name="monitorParameters">List of all monitor parameters</param>
         public MonitorParameters(List<double> monitorParameters)
         {
+
             StandParameters standParameters = new StandParameters(
                 monitorParameters[(int)ParametersType.StandHeight],
                 monitorParameters[(int)ParametersType.StandDiameter]);
@@ -74,7 +75,11 @@ namespace Monitor_Plugin.Parameters
             const double maxStandHeight = 20;
 
             bool checkStandHeight = (standParameters.Height >= minStandHeight) &&
-                                    (standParameters.Height <= maxStandHeight);
+                                    (standParameters.Height <= maxStandHeight) &&
+									!double.IsNaN(standParameters.Height) &&
+									!double.IsInfinity(standParameters.Height) &&
+									!double.IsNegativeInfinity(standParameters.Height) &&
+									!double.IsPositiveInfinity(standParameters.Height);
 
             if (!checkStandHeight)
             {
@@ -90,7 +95,11 @@ namespace Monitor_Plugin.Parameters
             const double maxStandDiameter = 250;
 
             bool checkStandDiameter = (standParameters.Diameter >= minStandDiameter) &&
-                                      (standParameters.Diameter <= maxStandDiameter);
+                                      (standParameters.Diameter <= maxStandDiameter) &&
+									  !double.IsNaN(standParameters.Diameter) &&
+									  !double.IsInfinity(standParameters.Diameter) &&
+									  !double.IsNegativeInfinity(standParameters.Diameter) &&
+									  !double.IsPositiveInfinity(standParameters.Diameter);
 
             if (!checkStandDiameter)
             {
@@ -106,7 +115,11 @@ namespace Monitor_Plugin.Parameters
             const double maxLegHeight = 80;
 
             bool checkLegHeight = (legParameters.Height >= minLegHeight) &&
-                                  (legParameters.Height <= maxLegHeight);
+                                  (legParameters.Height <= maxLegHeight) &&
+								  !double.IsNaN(legParameters.Height) &&
+								  !double.IsInfinity(legParameters.Height) &&
+								  !double.IsNegativeInfinity(legParameters.Height) &&
+								  !double.IsPositiveInfinity(legParameters.Height); ;
 
             if (!checkLegHeight)
             {
@@ -122,7 +135,11 @@ namespace Monitor_Plugin.Parameters
             const double maxLegWidth = 100;
 
             bool checkLegWidth = (legParameters.Width >= minLegWidth) &&
-                                 (legParameters.Width <= maxLegWidth);
+                                 (legParameters.Width <= maxLegWidth) &&
+								 !double.IsNaN(legParameters.Width) &&
+								 !double.IsInfinity(legParameters.Width) &&
+								 !double.IsNegativeInfinity(legParameters.Width) &&
+								 !double.IsPositiveInfinity(legParameters.Width); ;
 
             if (!checkLegWidth)
             {
@@ -137,7 +154,11 @@ namespace Monitor_Plugin.Parameters
             const double minLegThikness = 15;
 
             bool checkLegThikness = (legParameters.Thikness >= minLegThikness) &&
-                                    (legParameters.Thikness <= screenParameters.Thikness);
+                                    (legParameters.Thikness <= screenParameters.Thikness) &&
+									!double.IsNaN(legParameters.Thikness) &&
+									!double.IsInfinity(legParameters.Thikness) &&
+									!double.IsNegativeInfinity(legParameters.Thikness) &&
+									!double.IsPositiveInfinity(legParameters.Thikness); ;
 
             if (!checkLegThikness)
             {
@@ -153,7 +174,11 @@ namespace Monitor_Plugin.Parameters
             const double maxScreenHeight = 625;
 
             bool checkScreenHeight = (screenParameters.Height >= minScreenHeight) &&
-                                     (screenParameters.Height <= maxScreenHeight);
+                                     (screenParameters.Height <= maxScreenHeight) &&
+									 !double.IsNaN(screenParameters.Height) &&
+									 !double.IsInfinity(screenParameters.Height) &&
+									 !double.IsNegativeInfinity(screenParameters.Height) &&
+									 !double.IsPositiveInfinity(screenParameters.Height); ;
 
             if (!checkScreenHeight)
             {
@@ -169,7 +194,11 @@ namespace Monitor_Plugin.Parameters
             const double maxScreenWidth = 1000;
 
             bool checkScreenWidth = (screenParameters.Width >= minScreenWidth) &&
-                                    (screenParameters.Width <= maxScreenWidth);
+                                    (screenParameters.Width <= maxScreenWidth) &&
+									!double.IsNaN(screenParameters.Width) &&
+									!double.IsInfinity(screenParameters.Width) &&
+									!double.IsNegativeInfinity(screenParameters.Width) &&
+									!double.IsPositiveInfinity(screenParameters.Width); ;
 
             if (!checkScreenWidth)
             {
@@ -185,7 +214,11 @@ namespace Monitor_Plugin.Parameters
             const double maxScreenThikness = 60;
 
             bool checkScreenThikness = (screenParameters.Thikness >= minScreenThikness) &&
-                                       (screenParameters.Thikness <= maxScreenThikness);
+                                       (screenParameters.Thikness <= maxScreenThikness) &&
+									   !double.IsNaN(screenParameters.Thikness) &&
+									   !double.IsInfinity(screenParameters.Thikness) &&
+									   !double.IsNegativeInfinity(screenParameters.Thikness) &&
+									   !double.IsPositiveInfinity(screenParameters.Thikness); ;
 
             if (!checkScreenThikness)
             {

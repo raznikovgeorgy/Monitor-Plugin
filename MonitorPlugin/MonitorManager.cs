@@ -154,13 +154,15 @@ namespace Monitor_Plugin
 
 	            double backWidthAccess = 20;
 
-                _api.MakeNewSketch(3, -(_modelParameters.ScreenParam.Thikness / 2) - backWidthAccess);
+                _api.MakeNewSketch(3, -(_modelParameters.ScreenParam.Thikness / 2) -
+					backWidthAccess);
 
                 _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2) + frameThikness,
 	                _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
 	                _modelParameters.ScreenParam.Height - frameThikness,
 	                _modelParameters.ScreenParam.Width / 2 - frameThikness,
-	                _modelParameters.StandParam.Height + _modelParameters.LegParam.Height + frameThikness);
+	                _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
+					frameThikness);
 
                 _objCollection.Add(_api.CurrentSketch.Profiles.AddForSolid());
                 _api.Loft(_objCollection);
@@ -174,19 +176,23 @@ namespace Monitor_Plugin
 
 				// Number of perforation cells of perforation
 				double backPerforationCount = 
-					Math.Floor((_modelParameters.ScreenParam.Width - backWidthAccess) / (cellsWidth + cellDistance));
+					Math.Floor((_modelParameters.ScreenParam.Width - backWidthAccess) 
+					/ (cellsWidth + cellDistance));
 
                 //Create perforation cells
-                _api.MakeNewSketch(3, -(_modelParameters.ScreenParam.Thikness / 2) - frameThikness * 2);
+                _api.MakeNewSketch(3, -(_modelParameters.ScreenParam.Thikness / 2) -
+					frameThikness * 2);
 
                 for (int i = 0; i < backPerforationCount; i++)
                 {
-                    _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2) + frameThikness + 2 + i * 4,
+                    _api.DrawRectangle(-(_modelParameters.ScreenParam.Width / 2) +
+						frameThikness + 2 + i * 4,
 	                    _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
 	                    _modelParameters.ScreenParam.Height,
 	                    -(_modelParameters.ScreenParam.Width / 2) + frameThikness + 4 + i * 4,
 	                    _modelParameters.StandParam.Height + _modelParameters.LegParam.Height +
-	                    _modelParameters.ScreenParam.Height - (0.3 * _modelParameters.ScreenParam.Height));
+	                    _modelParameters.ScreenParam.Height -
+						(0.3 *_modelParameters.ScreenParam.Height));
                 }
 
                 _api.CutOut(9);

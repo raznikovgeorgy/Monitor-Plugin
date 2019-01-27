@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace MonitorPlugin.UnitTests
 {
 	[TestFixture]
-	class ScreenParametersTests
+	public class ScreenParametersTests
 	{
 
 		[Test, Description("Positive class constructor test")]

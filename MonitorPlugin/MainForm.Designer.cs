@@ -226,8 +226,8 @@
             this.ScreenHeightTextBox.Name = "ScreenHeightTextBox";
             this.ScreenHeightTextBox.Size = new System.Drawing.Size(100, 20);
             this.ScreenHeightTextBox.TabIndex = 6;
-            this.ScreenHeightTextBox.TextChanged += new System.EventHandler(this.ScreenHeightTextBox_TextChanged);
-            this.ScreenHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScreenHeightTextBox_KeyPress);
+            this.ScreenHeightTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.ScreenHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // ScreenWidthTextBox
             // 
@@ -237,8 +237,8 @@
             this.ScreenWidthTextBox.Name = "ScreenWidthTextBox";
             this.ScreenWidthTextBox.Size = new System.Drawing.Size(100, 20);
             this.ScreenWidthTextBox.TabIndex = 7;
-            this.ScreenWidthTextBox.TextChanged += new System.EventHandler(this.ScreenWidthTextBox_TextChanged);
-            this.ScreenWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScreenWidthTextBox_KeyPress);
+            this.ScreenWidthTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.ScreenWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // ScreenThiknessTextBox
             // 
@@ -248,8 +248,8 @@
             this.ScreenThiknessTextBox.Name = "ScreenThiknessTextBox";
             this.ScreenThiknessTextBox.Size = new System.Drawing.Size(100, 20);
             this.ScreenThiknessTextBox.TabIndex = 8;
-            this.ScreenThiknessTextBox.TextChanged += new System.EventHandler(this.ScreenThiknessTextBox_TextChanged);
-            this.ScreenThiknessTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScreenThiknessTextBox_KeyPress);
+            this.ScreenThiknessTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.ScreenThiknessTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // LegHeightTextBox
             // 
@@ -259,8 +259,8 @@
             this.LegHeightTextBox.Name = "LegHeightTextBox";
             this.LegHeightTextBox.Size = new System.Drawing.Size(100, 20);
             this.LegHeightTextBox.TabIndex = 3;
-            this.LegHeightTextBox.TextChanged += new System.EventHandler(this.LegHeightTextBox_TextChanged);
-            this.LegHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LegHeightTextBox_KeyPress);
+            this.LegHeightTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.LegHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // LegWidthTextBox
             // 
@@ -270,8 +270,8 @@
             this.LegWidthTextBox.Name = "LegWidthTextBox";
             this.LegWidthTextBox.Size = new System.Drawing.Size(100, 20);
             this.LegWidthTextBox.TabIndex = 4;
-            this.LegWidthTextBox.TextChanged += new System.EventHandler(this.LegWidthTextBox_TextChanged);
-            this.LegWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LegWidthTextBox_KeyPress);
+            this.LegWidthTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.LegWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // LegThiknessTextBox
             // 
@@ -281,8 +281,8 @@
             this.LegThiknessTextBox.Name = "LegThiknessTextBox";
             this.LegThiknessTextBox.Size = new System.Drawing.Size(100, 20);
             this.LegThiknessTextBox.TabIndex = 5;
-            this.LegThiknessTextBox.TextChanged += new System.EventHandler(this.LegThiknessTextBox_TextChanged);
-            this.LegThiknessTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LegThiknessTextBox_KeyPress);
+            this.LegThiknessTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.LegThiknessTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // StandHeightTextBox
             // 
@@ -292,8 +292,8 @@
             this.StandHeightTextBox.Name = "StandHeightTextBox";
             this.StandHeightTextBox.Size = new System.Drawing.Size(100, 20);
             this.StandHeightTextBox.TabIndex = 1;
-            this.StandHeightTextBox.TextChanged += new System.EventHandler(this.StandHeightTextBox_TextChanged);
-            this.StandHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StandHeightTextBox_KeyPress);
+            this.StandHeightTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.StandHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // StandDiameterTextBox
             // 
@@ -303,8 +303,8 @@
             this.StandDiameterTextBox.Name = "StandDiameterTextBox";
             this.StandDiameterTextBox.Size = new System.Drawing.Size(100, 20);
             this.StandDiameterTextBox.TabIndex = 2;
-            this.StandDiameterTextBox.TextChanged += new System.EventHandler(this.StandDiameterTextBox_TextChanged);
-            this.StandDiameterTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StandDiameterTextBox_KeyPress);
+            this.StandDiameterTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.StandDiameterTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // BuildButton
             // 
