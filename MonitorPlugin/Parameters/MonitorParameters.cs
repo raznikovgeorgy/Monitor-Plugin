@@ -43,7 +43,7 @@ namespace Monitor_Plugin.Parameters
         #region Propetries
 
         /// <summary>
-        /// Monitor stand parameters
+        /// Monitor parameter parameters
         /// </summary>
         public StandParameters StandParam { get => _standParameters; }
 
@@ -71,176 +71,69 @@ namespace Monitor_Plugin.Parameters
         private bool Validate(StandParameters standParameters,
             LegParameters legParameters, ScreenParameters screenParameters)
         {
-            const double minStandHeight = 10;
-            const double maxStandHeight = 20;
+			return (CheckParameter(10, 20, standParameters.Height,
+				PluginReporter.TypeError.ErrorStandHeight, "Stand Height") &&
 
-            bool checkStandHeight = (standParameters.Height >= minStandHeight) &&
-                                    (standParameters.Height <= maxStandHeight) &&
-									!double.IsNaN(standParameters.Height) &&
-									!double.IsInfinity(standParameters.Height) &&
-									!double.IsNegativeInfinity(standParameters.Height) &&
-									!double.IsPositiveInfinity(standParameters.Height);
+				CheckParameter(160, 250, standParameters.Diameter,
+				PluginReporter.TypeError.ErrorStandDiameter, "Stand Diameter") &&
 
-            if (!checkStandHeight)
-            {
-                PluginReporter.Instance().Add(
-                    PluginReporter.TypeError.ErrorScreenHeight,
-                    "The Stand Height are not correct.\n" +
-                    "Please observe the folloving relationship:\n" +
-                    "10 mm <= Stand Height <= 20 mm");
-                return false;
-            }
+				CheckParameter(40, 80, legParameters.Height,
+				PluginReporter.TypeError.ErrorLegHeight, "Leg Height") &&
 
-            const double minStandDiameter = 160;
-            const double maxStandDiameter = 250;
+				CheckParameter(50, 100, legParameters.Width,
+				PluginReporter.TypeError.ErrorLegWidth, "Leg Width") &&
 
-            bool checkStandDiameter = (standParameters.Diameter >= minStandDiameter) &&
-                                      (standParameters.Diameter <= maxStandDiameter) &&
-									  !double.IsNaN(standParameters.Diameter) &&
-									  !double.IsInfinity(standParameters.Diameter) &&
-									  !double.IsNegativeInfinity(standParameters.Diameter) &&
-									  !double.IsPositiveInfinity(standParameters.Diameter);
+				CheckParameter(15, screenParameters.Thikness, legParameters.Thikness,
+				PluginReporter.TypeError.ErrorLegThikness, "Leg Thikness") &&
 
-            if (!checkStandDiameter)
-            {
-                PluginReporter.Instance().Add(
-                    PluginReporter.TypeError.ErrorScreenHeight,
-                    "The Stand Diameter are not correct.\n" +
-                    "Please observe the folloving relationship:\n" +
-                    "160 mm <= Stand Diameter <= 250 mm");
-                return false;
-            }
+				CheckParameter(172, 625, screenParameters.Height,
+				PluginReporter.TypeError.ErrorScreenHeight, "Screen Height") &&
 
-            const double minLegHeight = 40;
-            const double maxLegHeight = 80;
+				CheckParameter(400, 1000, screenParameters.Width,
+				PluginReporter.TypeError.ErrorScreenWidth, "Screen Width") &&
 
-            bool checkLegHeight = (legParameters.Height >= minLegHeight) &&
-                                  (legParameters.Height <= maxLegHeight) &&
-								  !double.IsNaN(legParameters.Height) &&
-								  !double.IsInfinity(legParameters.Height) &&
-								  !double.IsNegativeInfinity(legParameters.Height) &&
-								  !double.IsPositiveInfinity(legParameters.Height); ;
-
-            if (!checkLegHeight)
-            {
-                PluginReporter.Instance().Add(
-                    PluginReporter.TypeError.ErrorScreenHeight,
-                    "The Leg Height are not correct.\n" +
-                    "Please observe the folloving relationship:\n" +
-                    "40 mm <= Leg Height <= 80 mm");
-                return false;
-            }
-
-            const double minLegWidth = 50;
-            const double maxLegWidth = 100;
-
-            bool checkLegWidth = (legParameters.Width >= minLegWidth) &&
-                                 (legParameters.Width <= maxLegWidth) &&
-								 !double.IsNaN(legParameters.Width) &&
-								 !double.IsInfinity(legParameters.Width) &&
-								 !double.IsNegativeInfinity(legParameters.Width) &&
-								 !double.IsPositiveInfinity(legParameters.Width); ;
-
-            if (!checkLegWidth)
-            {
-                PluginReporter.Instance().Add(
-                    PluginReporter.TypeError.ErrorScreenHeight,
-                    "The Leg Width are not correct.\n" +
-                    "Please observe the folloving relationship:\n" +
-                    "50 mm <= Leg Width <= 100 mm");
-                return false;
-            }
-
-            const double minLegThikness = 15;
-
-            bool checkLegThikness = (legParameters.Thikness >= minLegThikness) &&
-                                    (legParameters.Thikness <= screenParameters.Thikness) &&
-									!double.IsNaN(legParameters.Thikness) &&
-									!double.IsInfinity(legParameters.Thikness) &&
-									!double.IsNegativeInfinity(legParameters.Thikness) &&
-									!double.IsPositiveInfinity(legParameters.Thikness); ;
-
-            if (!checkLegThikness)
-            {
-                PluginReporter.Instance().Add(
-                    PluginReporter.TypeError.ErrorScreenHeight,
-                    "The Leg Thikness are not correct.\n" +
-                    "Please observe the folloving relationship:\n" +
-                    "15 mm <= Leg Thikness <= Screen Thikness");
-                return false;
-            }
-
-            const double minScreenHeight = 172;
-            const double maxScreenHeight = 625;
-
-            bool checkScreenHeight = (screenParameters.Height >= minScreenHeight) &&
-                                     (screenParameters.Height <= maxScreenHeight) &&
-									 !double.IsNaN(screenParameters.Height) &&
-									 !double.IsInfinity(screenParameters.Height) &&
-									 !double.IsNegativeInfinity(screenParameters.Height) &&
-									 !double.IsPositiveInfinity(screenParameters.Height); ;
-
-            if (!checkScreenHeight)
-            {
-                PluginReporter.Instance().Add(
-                    PluginReporter.TypeError.ErrorScreenHeight,
-                    "The Screen Height are not correct.\n" +
-                    "Please observe the folloving relationship:\n" +
-                    "172 mm <= Screen Height <= 625 mm");
-                return false;
-            }
-
-            const double minScreenWidth = 400;
-            const double maxScreenWidth = 1000;
-
-            bool checkScreenWidth = (screenParameters.Width >= minScreenWidth) &&
-                                    (screenParameters.Width <= maxScreenWidth) &&
-									!double.IsNaN(screenParameters.Width) &&
-									!double.IsInfinity(screenParameters.Width) &&
-									!double.IsNegativeInfinity(screenParameters.Width) &&
-									!double.IsPositiveInfinity(screenParameters.Width); ;
-
-            if (!checkScreenWidth)
-            {
-                PluginReporter.Instance().Add(
-                    PluginReporter.TypeError.ErrorScreenHeight,
-                    "The Screen Width are not correct.\n" +
-                    "Please observe the folloving relationship:\n" +
-                    "400 mm <= Screen Width <= 1000 mm");
-                return false;
-            }
-
-            const double minScreenThikness = 30;
-            const double maxScreenThikness = 60;
-
-            bool checkScreenThikness = (screenParameters.Thikness >= minScreenThikness) &&
-                                       (screenParameters.Thikness <= maxScreenThikness) &&
-									   !double.IsNaN(screenParameters.Thikness) &&
-									   !double.IsInfinity(screenParameters.Thikness) &&
-									   !double.IsNegativeInfinity(screenParameters.Thikness) &&
-									   !double.IsPositiveInfinity(screenParameters.Thikness); ;
-
-            if (!checkScreenThikness)
-            {
-                PluginReporter.Instance().Add(
-                    PluginReporter.TypeError.ErrorScreenHeight,
-                    "The Screen Thikness are not correct.\n" +
-                    "Please observe the folloving relationship:\n" +
-                    "30 mm <= Screen Thikness <= 60 mm");
-                return false;
-            }
-
-            return true;
+				CheckParameter(30, 60, screenParameters.Thikness,
+				PluginReporter.TypeError.ErrorScreenThikness, "Screens Thikness"));
         }
 
-        #endregion
+		/// <summary>
+		/// Check parameter valid values
+		/// </summary>
+		/// <param name="minValue">Minimal value</param>
+		/// <param name="maxValue">Maximum value</param>
+		/// <param name="parameter">Parameter</param>
+		/// <param name="error">Type of error</param>
+		/// <param name="parameterName">Name of the parameter</param>
+		/// <returns></returns>
+		private bool CheckParameter(double minValue, double maxValue, double parameter,
+			PluginReporter.TypeError error, string parameterName)
+		{
+			if ((parameter >= minValue) &&
+				(parameter <= maxValue) &&
+				!double.IsNaN(parameter) &&
+				!double.IsInfinity(parameter) &&
+				!double.IsNegativeInfinity(parameter) &&
+				!double.IsPositiveInfinity(parameter))
+			{
+				return true;
+			}
 
-        #region Fields
+			PluginReporter.Instance().Add(error, $"{parameterName} - value aren't correct\n" +
+				$"Please observe the folloving relationship:\n " +
+				$"{minValue} <= {parameterName} <= {maxValue}.");
 
-        /// <summary>
-        /// Monitor stand parameters
-        /// </summary>
-        private StandParameters _standParameters;
+			return false;
+		}
+
+
+		#endregion
+
+		#region Fields
+
+		/// <summary>
+		/// Monitor parameter parameters
+		/// </summary>
+		private StandParameters _standParameters;
 
         /// <summary>
         /// Monitor leg parameters
